@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8"/>
+		<title>25 Duracion y acciones despues de Efectos</title>
+		
+		<!--Hojas de estilo -->		
+		<style type="text/css">
+			body,html{
+				background:#FFF;
+				margin:0;
+				padding:0;
+			}
+						
+			#caja{
+				background:#00ff00;
+				display:block;
+				height:100px;
+				margin:20px auto;
+				width:400px;
+			}			
+			
+		</style>
+				
+		<!--Scripts Aca -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js">		
+		</script>
+		<script type="text/javascript">
+			
+			$(document).on("ready",function(){
+				
+				//creamos una velocidad personalizada, en vez de slow y fast
+				$.fx.speeds.lentooo=3000;
+				$.fx.speeds.muyRapido=100;
+				
+				$("#btn1").on("click",function(){
+					var textoBtn=$(this).text();
+					if(textoBtn == "OFF"){
+						$(this).text("ON");
+					}
+					else{
+						$(this).text("OFF");
+					}
+					//Si esta oculto,muestra el elemento, sino lo oculta
+					$("#caja").fadeToggle("lentoo",function(){
+						$("#caja").css("background","red");
+					});
+				});
+			});
+		
+		</script>
+		
+	</head>
+	<body>
+		<div id="caja">
+		</div>
+		<button id="btn1">OFF</button>		
+		
+	</body>
+</html>
